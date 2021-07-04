@@ -1,4 +1,4 @@
-import { createApp } from 'https://unpkg.com/petite-vue@0.2.2?module'
+import { createApp } from 'https://unpkg.com/petite-vue?module'
 import { store } from './store.js'
 import { Chara } from './Chara.js'
 import { Cactus } from './Cactus.js'
