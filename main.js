@@ -5,9 +5,12 @@ import { Cactus } from './Cactus.js'
 import { shouldAddCactus } from './gameLogics.js'
 import { Ticker } from './Ticker.js'
 
+/** frame rate(base of frame length) */
 const FPS = 60
+/** ticker instance */
 let gameTicker
 
+// create petite-vue app
 const app = createApp({
   store,
   Chara,
