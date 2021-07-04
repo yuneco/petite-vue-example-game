@@ -9,6 +9,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 button {
@@ -21,6 +22,10 @@ button {
   height: 600px;
   display: flex;
   color: rgb(40, 100, 140);
+}
+
+.info {
+  font-size: 12px;
 }
 
 .title {

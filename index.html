@@ -12,7 +12,12 @@
 
 <body>
   <!-- v-scope value can be omitted -->
-  <div id="app" v-scope>
+  <div class="info">
+    This game is made with petite-vue 0.2.2.<br />
+    <a href="https://github.com/yuneco/petite-vue-example-game">See source code on GitHub.</a>
+    <a href="https://twitter.com/yuneco">@yuneco</a>
+  </div>
+<div id="app" v-scope>
     <!-- Game status -->
     <div class="status" v-if="store.game.isPlaying">
       <div class="lifes">
