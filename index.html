@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script type="module" src="main.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
+
 <body>
-  
+  <!-- v-scope value can be omitted -->
+  <div id="app" v-scope>
+    <!-- Game status -->
+    <div class="status" v-if="store.game.isPlaying">
+      <div class="lifes">
+        LIFE: <span class="life" v-for="v in store.game.life">●</span>
+      </div>
+      <div class="score">
+        SCORE: {{ store.game.score }}
+      </div>
+    </div>
+
+    <!-- Title & result screen -->
+    <div class="title" v-if="!store.game.isPlaying">
+      <div class="result" v-if="store.game.score">
+        <div class="gameOverMsg">GAME OVER</div>
+        <div class="score">Your Score: {{store.game.score}}</div>
+      </div>
+      <div class="start">
+        <button @click="store.startGame">START!!</button>
+      </div>
+    </div>
+
+    <!-- Game main stage -->
+    <div class="stage" :class="{gameOver: !store.game.isPlaying}" @mounted="onMounted">
+      <div class="charaWrapper" v-scope="Chara({})" @mounted="onMounted" @mousedown="onMousedown"></div>
+      <div class="cactusWrapper" v-for="cactus in store.cactuses" :key="cactus.id" v-scope="Cactus(cactus)"
+        @mousedown="onMousedown"></div>
+    </div>
+  </div>
+
+  <!-- Component template of Charactor -->
+  <template id="chara-template">
+    <div class="chara" :class="{damaged: store.chara.damaged}" :style="{
+      transform: `translate(${store.chara.x}px, ${-store.chara.y}px)`
+    }">
+    </div>
+  </template>
+
+  <!-- Component template of Cactus -->
+  <template id="cactus-template">
+    <div class="cactus" :style="{
+      height: `${props.h}px`,
+      transform: `translateX(${props.x}px)`
+    }">
+    </div>
+  </template>
+
+
 </body>
+
 </html>

@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+#app {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  color: rgb(40, 100, 140);
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title .start {
+  width: 100%;
+  text-align: center;
+}
+.title .start button {
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  font-size: 16px;
+  color: inherit;
+  background-color: #fff;
+}
+.title .result {
+  width: 100%;
+  text-align: center;
+}
+
+.status {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+.status > div {
+  flex-grow: 1;
+}
+
+
+.stage {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  border: 1px solid rgb(40, 100, 140);
+  overflow: hidden;
+}
+
+.stage.gameOver {
+  pointer-events: none;
+}
+.stage.gameOver > * {
+  transition: filter .5s;
+  filter: blur(10px);
+}
+
+.charaWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.chara {
+  position: absolute;
+  width: 40px;
+  height: 80px;
+  background: url(./tama.svg) no-repeat bottom center;
+  background-size: contain;
+  bottom: 0;
+}
+
+.chara.damaged {
+  animation: blink 0.1s alternate infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.cactus {
+  position: absolute;
+  width: 30px;
+  height: 80px;
+  bottom: 0;
+  background-color: rgb(156, 192, 127);
+  border-radius: 15px 15px 0 0;
+}
